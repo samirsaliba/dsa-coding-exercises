@@ -94,25 +94,37 @@ if __name__ == "__main__":
 
     examples = [
         {
-            "nums": [2,7,11,15],
-            "target": 9
+            "args": {
+                "nums": [2,7,11,15],
+                "target": 9
+            },
+            "solution": [0,1]
         },
         {
-            "nums": [3,2,4],
-            "target": 6
+            "args": {
+                "nums": [3,2,4],
+                "target": 6
+            },
+            "solution": [1,2]
         },
         {
-            "nums": [3,3],
-            "target": 6
+            "args": {
+                "nums": [3,3],
+                "target": 6
+            },
+            "solution": [0,1]
         },
     ]
+
 
     for i, example in enumerate(examples, start=1):
         print(f"Example {i}")
         print("Args:")
         print(example)
         print("Solution:")
-        print(s.twoSum(**example))
+        result = s.twoSum(**example["args"])
+        print(result)
+        assert result == example["solution"], "Not the expected result"
         print()
     
     
