@@ -7,43 +7,36 @@
 
 # You may assume that you have an infinite number of each kind of coin.
 
+import math
 class Solution:
     def _eval_amount(self, n):
         if n in self._cache:
             return self._cache[n]
-            
-        possibilities_for_n = []
+
+        coins_n = math.inf
         for coin in self._coins:
-            
+            if n == coin:
+                coins_n = 1
+                break
             if n-coin <= 0:
                 continue
-            value, num_of_coins = self._eval_amount(n-coin)
-            if num_of_coins != -1:
-                possibilities_for_n.append((n, num_of_coins+1))
-
-        if len(possibilities_for_n) == 0:
-            # Cannot find solution for this amount
-            result = (-1, -1)
-        else:
-            result = min(possibilities_for_n, key = lambda x: x[1])
+            coins_n = min(coins_n, self._eval_amount(n-coin) + 1)
             
-        self._cache[n] = result
-        return result
+        self._cache[n] = coins_n
+        return coins_n
 
-
-    def _init_cache(self):
-        self._cache = {}
-        for coin in self._coins:
-            number_of_coins = 1
-            value = coin
-            self._cache[coin] = (value, number_of_coins)
 
     def coinChange(self, coins, amount):
-        if amount==0: return 0
+            if amount == 0: 
+            return 0
+        self._cache = {}
         self._coins = coins
-        self._init_cache()
+
         result = self._eval_amount(n=amount)
-        return result[1]
+
+        if result == math.inf:
+            return -1
+        return result
 
 
 if __name__ == "__main__":
