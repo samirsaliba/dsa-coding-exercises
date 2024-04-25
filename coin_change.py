@@ -27,8 +27,7 @@ class Solution:
 
 
     def coinChange(self, coins, amount):
-            if amount == 0: 
-            return 0
+        if amount == 0: return 0
         self._cache = {}
         self._coins = coins
 
