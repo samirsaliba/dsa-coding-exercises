@@ -43,7 +43,7 @@ if __name__ == "__main__":
         print("Args:")
         print(example)
         print("Solution:")
-        result = s.climbStairs(n=example["args"]["n"])
+        result = s.climbStairs(**example["args"])
         print(result)
         assert result == example["solution"], "Not the expected result"
         print()
