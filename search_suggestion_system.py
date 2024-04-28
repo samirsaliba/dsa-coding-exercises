@@ -9,71 +9,71 @@
 
 
 """
-NOTE: While this solution works, I'm not super proud of it as I know it could
-be way more efficient. Indexing the children backwards and 
-that "reversed" call are tricks I found to make it functional 
-but are definitely not the ideal.
-I'll give it more thought and figure something more efficient soon
+NOTE: Not the best but better
 """
-from collections import deque
+
+from typing import List
+
 class TreeNode():
     def __init__(self, val=None):
         self.children = [None] * 26
         self.end = False
         self.val = val
 
+def _char_to_index(c):
+    return ord(c.lower()) - ord('a')
+
+
 class Trie():
     def __init__(self):
         self.root = TreeNode()
 
-    def _char_to_index(self, c):
-        return 25 - ( ord(c.lower()) - ord('a') ) # indexing backwards
-
     def insert(self, word):
         node = self.root
         for i, letter in enumerate(word):
-            indx = self._char_to_index(letter)
+            indx = _char_to_index(letter)
             if node.children[indx] is None:
-                node.children[indx] = TreeNode()
+                node.children[indx] = TreeNode(letter)
             node = node.children[indx]
-        node.val = word
         node.end = True
-
-    def _dfs(self, node, include_node_word=False):
-        queue = deque(reversed(node.children))
-        words = []
-        if include_node_word:
-            words.append(node.val)
-        while queue:
-            node = queue.popleft()
-            if node is not None:
-                queue.extendleft(node.children)
-                if node.end == True:
-                    words.append(node.val)
-                    if len(words) == 3:
-                        return words
-        return words
-
-    def search_prefix(self, prefix):
-        node = self.root
+        
+class Solution:
+    def _search_prefix(self, root, prefix):
+        node = root
         for letter in prefix:
-            indx = self._char_to_index(letter)
+            indx = _char_to_index(letter)
             if node.children[indx] is None:
                 return []
             node = node.children[indx]
-        return self._dfs(node, include_node_word=node.end)
-            
+        return self._dfs(node, start_prefix=prefix)
+
+    def _dfs(self, node, start_prefix):
+        if node is None: return []
+        if node in self._cache:
+            return self._cache[node]
+
+        words = []
+        if node.end == True: 
+            words.append(start_prefix)
+        for child in node.children:
+            if child is not None:
+                words.extend(self._dfs(child, start_prefix=start_prefix + child.val))
+                if len(words) > 3: 
+                    break
+        self._cache[node] = words[0:3]
+        return words[0:3]
         
-class Solution:
+
     def suggestedProducts(self, products: List[str], searchWord: str) -> List[List[str]]:
         tree = Trie()
         for product in products:
             tree.insert(product)
 
+        self._cache = {}
         words = []
         i=1
         while i < len(searchWord)+1:
-            words.append(tree.search_prefix(searchWord[:i]))
+            words.append(self._search_prefix(tree.root, searchWord[:i]))
             i+=1
 
         return words
