@@ -14,6 +14,8 @@
 # Return the total number of provinces.
 
 from collections import deque
+from typing import List
+
 class Solution:
     def _dfs(self, start, M):
         visited = set()
@@ -32,14 +34,13 @@ class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
         cities = list(range(len(isConnected)))
         provinces = 0
-        visited = set()
+        visited = [False] * len(isConnected)
         for city in cities:
-            if city not in visited:
+            if visited[city] == False:
                 visited_from_city = self._dfs(city, isConnected)
-                visited.update(visited_from_city)
+
+                for v in visited_from_city:
+                    visited[v] = True
                 provinces+=1
             
-                if visited == set(cities):
-                    break
-
         return provinces
