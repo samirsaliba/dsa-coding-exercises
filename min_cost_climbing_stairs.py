@@ -7,11 +7,9 @@
 
 class Solution:
     def _min_cost_to(self, x):
-        if x == 0:
-            return self._cost[0]
-        elif x == 1:
-            return self._cost[1]
-        
+        if x < 2:
+            return self._cost[x]
+
         elif x in self._cache:
             return self._cache[x]
         
