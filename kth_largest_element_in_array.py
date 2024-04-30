@@ -6,6 +6,7 @@
 # Can you solve it without sorting?
 
 from collections import deque
+import heapq
 
 class MinHeap():
     def __init__(self, n):
