@@ -20,6 +20,4 @@ class Solution:
             else:
                 return False
         
-        if len(chars) > 0:
-            return False
-        return True
+        return len(chars) == 0
