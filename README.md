@@ -1,4 +1,4 @@
-# DSA Coding Exercises
+![image](https://github.com/samirsaliba/dsa-coding-exercises/assets/37604363/5923b634-46f6-4bfa-932c-5e1e9b67a89e)# DSA Coding Exercises
 
 This repository contains Python solutions to various coding exercises focusing on Data Structures and Algorithms (DSA). Each file corresponds to a specific problem from LeetCode.
 TODO: Replace the below file names with LeetCode problem names and add the respective URLs.
@@ -55,17 +55,20 @@ TODO: Replace the below file names with LeetCode problem names and add the respe
 - **Strings and Arrays**
   - asteroid_collision.py
   - can_place_flowers.py
+  - close_strings.py
   - container_with_most_water.py
   - decode_string.py
   - find_difference_two_arrays.py
   - find_highest_altitude.py
   - find_pivot_index.py
   - greatest_common_divisor_strings.py
+  - insert_interval.py
   - is_anagram.py
   - is_subsequence.py
   - kids_with_candies.py
   - longest_subarrays_1s_after_deleting_one_0.py
   - max_vowels_in_substring_given_length.py
+  - merge_intervals.py
   - merge_strings_alternatively.py
   - move_zeroes.py
   - product_array_except_self.py
