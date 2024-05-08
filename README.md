@@ -1,4 +1,4 @@
-![image](https://github.com/samirsaliba/dsa-coding-exercises/assets/37604363/5923b634-46f6-4bfa-932c-5e1e9b67a89e)# DSA Coding Exercises
+# DSA Coding Exercises
 
 This repository contains Python solutions to various coding exercises focusing on Data Structures and Algorithms (DSA). Each file corresponds to a specific problem from LeetCode.
 TODO: Replace the below file names with LeetCode problem names and add the respective URLs.
