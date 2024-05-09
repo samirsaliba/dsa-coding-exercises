@@ -76,6 +76,7 @@ TODO: Replace the below file names with LeetCode problem names and add the respe
   - reverse_vowels.py
   - reverse_words_in_string.py
   - string_compression.py
+  - subarray_sum_equals_k.py
   - successful_pairs_spells_and_potions.py
   - three_sum.py
   - two_sum.py
