@@ -10,6 +10,7 @@ TODO: Replace the below file names with LeetCode problem names and add the respe
   - climbing_stairs.py
   - coin_change.py
   - house_robber.py
+  - longest_palindromic_substring.py
   - maximum_product_subarray.py
   - maximum_subarray.py
   - min_cost_climbing_stairs.py
