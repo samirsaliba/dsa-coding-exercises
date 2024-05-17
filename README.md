@@ -14,8 +14,11 @@ TODO: Replace the below file names with LeetCode problem names and add the respe
   - maximum_product_subarray.py
   - maximum_subarray.py
   - min_cost_climbing_stairs.py
+  - minimum_path_sum.py
   - nth_tribonacci_number.py
   - split_array_largest_sum.py
+  - unique_paths_2.py
+  - unique_paths.py
 
 - **Graphs and Trees**
   - binary_tree_rightside_view.py
